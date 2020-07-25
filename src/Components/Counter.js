@@ -9,14 +9,14 @@ const Counter = (props) => {
     console.log(props)
     return (
         <>
-            <p className="title">This is our Counter</p>
+            <p style={{color: "red"}}>If you click ( + ) you add (1), If you click ( - ) you decrement by (-1).</p>
             <br/>
-            <div className="counter" >
-            <button className="btn" onClick={() => {props.descounter()}} >-</button>
-            <div className="number">
+            <div>
+            <button style={{width: 50, height: 50, marginBottom: 15}} onClick={() => {props.descounter()}}>-</button>
+            <div>
             <span > {props.number.number} </span>
             </div>
-            <button className="btn" onClick={() => {props.addcounter()}} >+</button>
+            <button style={{width: 50, height: 50, marginTop: 15}} onClick={() => {props.addcounter()}}>+</button>
             </div>
 
         </>
@@ -24,8 +24,8 @@ const Counter = (props) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return{
-        plus: () =>{dispatch(addNumber())},
-        moin: () =>{dispatch(subNumber())}
+      addcounter: () =>{dispatch(addNumber())},
+      descounter: () =>{dispatch(subNumber())}
     }
 }       
 
@@ -35,4 +35,4 @@ const mapStateToProps = (state) =>{
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps) (Counter)
+export default connect(mapStateToProps,mapDispatchToProps)(Counter)
